@@ -13,18 +13,18 @@ services:
     volumes:
       - pg_data_production:/var/lib/postgresql/data
   backend:
-    image: vas252/taski_backend
+    image: vas252/taski_backend:latest
     env_file: .env
     volumes:
       - static_volume:/backend_static
   frontend:
-    image: vas252/taski_frontend  # Качаем с Docker Hub
+    image: vas252/taski_frontend:latest  # Качаем с Docker Hub
     env_file: .env
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static_volume:/frontend_static
   gateway:
-    image: vas252/taski_gateway  # Качаем с Docker Hub
+    image: vas252/taski_gateway:latest  # Качаем с Docker Hub
     env_file: .env
     volumes:
       - static_volume:/staticfiles/
